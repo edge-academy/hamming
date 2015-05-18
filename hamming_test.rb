@@ -51,6 +51,36 @@ class HammingTest < MiniTest::Unit::TestCase
     skip
     assert_equal(9, Hamming.compute('GGACGGATTCTG', 'AGGACGGATTCT'))
   end
+
+  def test_hamming_distance_longer_second_strand
+    skip
+    assert_equal(1, Hamming.compute('GG', 'AGT'))
+  end
+
+  def test_hamming_distance_longer_first_strand
+    skip
+    assert_equal(2, Hamming.compute('GGACT', 'AGT'))
+  end
+
+  def test_hamming_distance_empty_first_strand
+    skip
+    assert_equal(0, Hamming.compute('', 'AGT'))
+  end
+
+  def test_hamming_distance_empty_second_strand
+    skip
+    assert_equal(0, Hamming.compute('GATC', ''))
+  end
+
+  def test_hamming_distance_invalid_first_strand
+    skip
+    assert_raises(InvalidString, Hamming.compute('GF', 'GG'))
+  end
+
+  def test_hamming_distance_invalid_second_strand
+    skip
+    assert_raises(InvalidString, Hamming.compute('GAC', 'GDG'))
+  end
 end
 
 __END__
